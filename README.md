@@ -1,8 +1,8 @@
 <div align="center">
     <img src=".github/icon.png" width="150" alt="icon">
-</div>
 
 # GSearch
+</div>
 
 A Chrome/Edge Addon to add Google search option to the right-click menu.
 
