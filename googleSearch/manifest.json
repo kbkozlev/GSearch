@@ -5,10 +5,10 @@
   "description": "Add Google search option to the right-click menu.",
   "permissions": ["contextMenus", "tabs", "management"],
   "action": {
-
+    "default_popup": "popup/popup.html"
   },
   "icons": {
-    "48": "icon48.png"
+    "48": "icons/icon48.png"
   },
   "background": {
     "service_worker": "background.js"
