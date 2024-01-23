@@ -1,39 +1,27 @@
-// background.js
 chrome.runtime.onInstalled.addListener(function () {
-
-  chrome.contextMenus.create({
-    id: "removeExtension",
-    title: "Remove Extension",
-    contexts: ["browser_action"],
-    parentId: "extensionContextMenu"
-  });
-
-  chrome.contextMenus.create({
-    id: "openGitHub",
-    title: "Open GitHub Page",
-    contexts: ["browser_action"],
-    parentId: "extensionContextMenu"
-  });
-
-  // Context menu for right-click on web pages
-  chrome.contextMenus.create({
-    id: "googleSearch",
-    title: "Search with Google",
-    contexts: ["selection"]
-  });
+  createContextMenu("googleSearch", "Search with Google", ["selection"]);
 });
 
-chrome.contextMenus.onClicked.addListener(function (info, tab) {
-  if (info.menuItemId === "removeExtension") {
-    chrome.management.uninstallSelf({ showConfirmDialog: true });
-  } else if (info.menuItemId === "openGitHub") {
-    chrome.tabs.create({ url: "https://github.com/kbkozlev/googleSearch" });
-  } else if (info.menuItemId === "googleSearch" && info.selectionText) {
+chrome.contextMenus.onClicked.addListener(function (info) {
+  if (info.menuItemId === "googleSearch" && info.selectionText) {
     searchWithGoogle(info.selectionText);
   }
 });
 
+function createContextMenu(id, title, contexts) {
+  chrome.contextMenus.create({
+    id: id,
+    title: title,
+    contexts: contexts,
+  });
+}
+
 function searchWithGoogle(query) {
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-  chrome.tabs.create({ url: searchUrl });
+
+  chrome.tabs.create({ url: searchUrl }, function() {
+    if (chrome.runtime.lastError) {
+      console.error(chrome.runtime.lastError);
+    }
+  });
 }
