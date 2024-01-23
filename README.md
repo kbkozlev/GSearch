@@ -7,7 +7,7 @@
 
 A Chrome/Edge Addon to add Google search option to the right-click menu.
 
-<img src=".github/screenshot.png" alt="screenshot" width="825" height="463.5"><br/>
+<img src=".github/screenshot.jpg" alt="screenshot" width="825" height="463.5"><br/>
 
 
 
