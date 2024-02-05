@@ -11,6 +11,8 @@ A Chrome/Edge Addon to add Google search option to the right-click menu.
 </p>
 
 #### To use this Addon:
+> Download from the [Microsoft Store](https://microsoftedge.microsoft.com/addons/detail/gsearch/jkocbcchjllcngejggebhmoefjbkbjlh).
+#### Dowload from Github:
 > 1. Download the latest [release](https://github.com/kbkozlev/GSearch/releases)
 > 2. Extract the contents of the zip file.
 > 3. Open Chrome or Edge and navigate to the extensions tab.
